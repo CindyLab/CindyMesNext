@@ -1,0 +1,90 @@
+{
+  "projectType": "application",
+  "root": "apps/mes-zm",
+  "sourceRoot": "apps/mes-zm/src",
+  "prefix": "kety-mes-zm",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mes-zm",
+        "index": "apps/mes-zm/src/index.html",
+        "main": "apps/mes-zm/src/main.ts",
+        "polyfills": "apps/mes-zm/src/polyfills.ts",
+        "tsConfig": "apps/mes-zm/tsconfig.app.json",
+        "assets": ["apps/mes-zm/src/favicon.ico", "apps/mes-zm/src/assets"],
+        "styles": ["apps/mes-zm/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/mes-zm/src/environments/environment.ts",
+              "with": "apps/mes-zm/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "mes-zm:build:production"
+        },
+        "development": {
+          "browserTarget": "mes-zm:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/mes-zm/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "mes-zm:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/mes-zm/**/*.ts", "apps/mes-zm/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/mes-zm"],
+      "options": {
+        "jestConfig": "apps/mes-zm/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

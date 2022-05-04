@@ -1,0 +1,28 @@
+{
+  "root": "apps/mes-zm-e2e",
+  "sourceRoot": "apps/mes-zm-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/mes-zm-e2e/cypress.json",
+        "devServerTarget": "mes-zm:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "mes-zm:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mes-zm-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["mes-zm"]
+}
