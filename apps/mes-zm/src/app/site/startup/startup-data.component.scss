@@ -1,0 +1,17 @@
+.station {
+  min-width: 250px;
+
+  .body {
+    width: 100%;
+    min-height: 100px;
+    padding: 7px 15px;
+    color: white;
+    background-color: #666666;
+    display: grid;
+
+    .header {
+      text-align: right;
+    }
+
+  }
+}

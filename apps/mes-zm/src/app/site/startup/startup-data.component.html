@@ -1,0 +1,10 @@
+<div class="body">
+  <table border="1" cdk-table dataSource="dataSource" >
+    <ng-container cdkColumnDef="press">
+      <th cdk-header-cell>Prasa:</th>
+      <td cdk-cell *cdkCellDef="let element"> {{this.element.press}} </td>
+    </ng-container>
+  </table>
+</div>
+
+<div>Test</div>
